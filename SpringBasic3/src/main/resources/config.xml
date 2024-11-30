@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+                <!-- species class-->
+    <bean class="org.example.using_xml.Species" name="species1">
+        <property name="species" value="Wild Animal"/>
+    </bean>
+    <bean class="org.example.using_xml.Species" name="species2">
+        <property name="species" value="Bird"/>
+    </bean>
+    <bean class="org.example.using_xml.Species" name="species3">
+        <property name="species" value="Insects"/>
+    </bean>
+
+    <!--FoundInCountries class-->
+    <bean class="org.example.using_xml.FoundInCountries" name="F1">
+        <property name="countries" >
+            <set>
+                <value>India</value>
+                <value>UK</value>
+                <value>Russia</value>
+                <value>Canada</value>
+                <value>Japan</value>
+            </set>
+        </property>
+    </bean>
+    <bean class="org.example.using_xml.FoundInCountries" name="F2">
+        <property name="countries" >
+            <set>
+                <value>India</value>
+                <value>UK</value>
+                <value>Russia</value>
+            </set>
+        </property>
+    </bean>
+    <bean class="org.example.using_xml.FoundInCountries" name="F3">
+        <property name="countries" >
+            <set>
+                <value>Russia</value>
+                <value>Canada</value>
+                <value>Japan</value>
+            </set>
+        </property>
+    </bean>
+
+
+    <!--Animal class-->
+    <bean class="org.example.using_xml.Animal" name="animal1">
+        <property name="no" value="1"/>
+        <property name="name" value="Lion"/>
+        <property name="species" ref="species1"/>
+        <property name="countries" ref="F1"/>
+    </bean>
+    <!--Animal class-->
+    <bean class="org.example.using_xml.Animal" name="animal2">
+        <property name="no" value="2"/>
+        <property name="name" value="Bee"/>
+        <property name="species" ref="species3"/>
+        <property name="countries" ref="F2"/>
+    </bean>
+    <!--Animal class-->
+    <bean class="org.example.using_xml.Animal" name="animal3">
+        <property name="no" value="3"/>
+        <property name="name" value="Sparrow"/>
+        <property name="species" ref="species2"/>
+        <property name="countries" ref="F1"/>
+    </bean>
+    <!--Animal class-->
+    <bean class="org.example.using_xml.Animal" name="animal4">
+        <property name="no" value="4"/>
+        <property name="name" value="Tiger"/>
+        <property name="species" ref="species1"/>
+        <property name="countries" ref="F1"/>
+    </bean>
+</beans>
