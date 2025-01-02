@@ -5,6 +5,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan("org.example.Practice")
-public class JavaConfig {
+public class StudentConfigClass {
 
 }

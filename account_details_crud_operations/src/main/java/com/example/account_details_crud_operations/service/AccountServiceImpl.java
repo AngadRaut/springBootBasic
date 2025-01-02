@@ -1,7 +1,8 @@
 package com.example.account_details_crud_operations.service;
 
-import com.example.account_details_crud_operations.dao.AccountRepository;
+import com.example.account_details_crud_operations.repo.AccountRepository;
 import com.example.account_details_crud_operations.entities.Account;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AccountServiceImpl implements AccountService{
+public class AccountServiceImpl implements AccountService {
     @Autowired
     private AccountRepository accountRepository;
 

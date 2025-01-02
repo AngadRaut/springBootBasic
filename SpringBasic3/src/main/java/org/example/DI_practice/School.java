@@ -22,7 +22,7 @@ public class School {
     }
 
     public static void main(String[] args) {
-        ApplicationContext context = new AnnotationConfigApplicationContext(JavaConfig.class);
+        ApplicationContext context = new AnnotationConfigApplicationContext(StudentConfigClass.class);
         School student = (School) context.getBean("school");
         student.displayStudentInfo();
     }
