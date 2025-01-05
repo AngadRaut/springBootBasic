@@ -27,10 +27,15 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Account depositMoney(int account_no, Double money) {
         Optional<Account> account = this.accountRepository.findById(account_no);
-        Account account1 = account.get();
-        Double balance=account1.getBalance()+money;
-        account1.setBalance(balance);
-        return this.accountRepository.save(account1);
+        if (account.isEmpty()) {
+            throw new RuntimeException("account is not present with this account no.");
+        } else {
+            Account account1 = account.get();
+            Double balance = account1.getBalance() + money;
+            account1.setBalance(balance);
+            return this.accountRepository.save(account1);
+        }
+
     }
 
     @Override

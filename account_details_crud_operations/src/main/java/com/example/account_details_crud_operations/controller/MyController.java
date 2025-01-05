@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Vector;
 
 @RestController
 @RequestMapping("/account")
@@ -17,11 +18,12 @@ public class MyController {
     private AccountServiceImpl accountService;
 
     // adding new account
-    @PutMapping("/create")
+    @PostMapping("/create")
     public ResponseEntity<Account> createAcc(@RequestBody Account account){
         Account account1 = this.accountService.createAccount(account);
         return ResponseEntity.status(HttpStatus.CREATED).body(account1);
     }
+
 
     // get all account details
     @GetMapping("/getAllAccounts")
@@ -43,7 +45,8 @@ public class MyController {
     
     // add money in account update the amount
     @PatchMapping("/depositmoney/{accountNo}/{money}")
-    public ResponseEntity depositMoney(@PathVariable("accountNo") int accountNo, @PathVariable("money") Double money){
+    public ResponseEntity depositMoney(@PathVariable("accountNo") int accountNo
+            , @PathVariable("money") Double money){
          Account account = this.accountService.depositMoney(accountNo,money);
          return new ResponseEntity("account balance updated",HttpStatus.CREATED);
     }
